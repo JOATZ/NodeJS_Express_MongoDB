@@ -12,6 +12,9 @@ const fs = require('fs')
 //     res.setHeader('Content-Type', 'text/html')
 //     res.end('<htmnl><body><h1>Hello World!</h1></body></html>')
 // })
+const server = http.createServer((req, res) => {
+console.log(`Request for ${req.url} by method ${req.method}`);
+
 if (req.method === 'GET') {
     let fileUrl = req.url;
     if (fileUrl === '/') {
