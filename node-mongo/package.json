@@ -1,13 +1,19 @@
 {
-    "name": "node-mongo",
-    "version": "1.0.0",
-    "description": "Node MongoDB Example",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "nodemon index"
-    },
-    "dependencies": {
-        "mongodb": "^3.6.2"
-    }
+  "name": "node-mongo",
+  "version": "1.0.0",
+  "description": "Node MongoDB Example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index"
+  },
+  "dependencies": {
+    "mongodb": "^3.6.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "node mongodb exmaple"
+  },
+  "author": "",
+  "license": "ISC"
 }
