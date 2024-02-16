@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser')
 var logger = require('morgan')
 const session = require('express-session')
 const FileStore = require('session-file-store')(session)
-
+const passport = require('passport')
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
 const promotionRouter = require('./routes/promotionRouter')
@@ -40,29 +40,28 @@ app.use(express.urlencoded({ extended: false }))
 app.use(
     session({
         name: 'session-id',
-        secret: '12345-67890-09876-543221',
+        secret: '12345-67890-09876-54321',
         saveUninitialized: false,
         resave: false,
         store: new FileStore()
     })
 )
 
+app.use(passport.initialize())
+app.use(passport.session())
+
 function auth(req, res, next) {
+    console.log(req.user)
+
     if (!req.session.user) {
         const err = new Error('You are not authenticated!')
-
         err.status = 401
         return next(err)
     } else {
-        if (req.session.user === 'authenticated') {
-            return next()
-        } else {
-            const err = new Error('You are not authenticated!')
-            err.status = 401
-            return next(err)
-        }
+        return next()
     }
 }
+
 //these need ot be before auth since we have login setup
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
