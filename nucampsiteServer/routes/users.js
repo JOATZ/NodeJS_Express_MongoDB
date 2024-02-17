@@ -28,7 +28,9 @@ router.post('/signup', (req, res) => {
     User.register(
         new User({ username: req.body.username }),
         req.body.password,
-        (err) => {
+        (err, user) => {
+            console.log(req.body)
+            console.log(err)
             if (err) {
                 res.statusCode = 500
                 res.setHeader('Content-Type', 'application/json')

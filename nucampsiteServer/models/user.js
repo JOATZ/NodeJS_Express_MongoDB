@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const passpotLocalMongoose = require('passport-local-mongoose')
+const passportLocalMongoose = require('passport-local-mongoose')
 const Schema = mongoose.Schema
 
 const userSchema = new Schema({
@@ -8,6 +8,6 @@ const userSchema = new Schema({
     admin: { type: Boolean, default: false }
 })
 
-userSchema.plugin(passpotLocalMongoose)
+userSchema.plugin(passportLocalMongoose)
 
 module.exports = mongoose.model('User', userSchema)
