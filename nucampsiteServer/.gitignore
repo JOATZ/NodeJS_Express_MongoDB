@@ -1,6 +1,0 @@
-bin/server.cert
-bin/server.key
-.idea
-.vscode
-node_modules
-
