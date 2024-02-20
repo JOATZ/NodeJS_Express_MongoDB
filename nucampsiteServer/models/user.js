@@ -7,7 +7,8 @@ const userSchema = new Schema({
     //    password: { type: String, required: true },
     firstname: { type: String, default: '' },
     lastname: { type: String, default: '' },
-    admin: { type: Boolean, default: false }
+    admin: { type: Boolean, default: false },
+    facebookId: String
 })
 
 userSchema.plugin(passportLocalMongoose)
